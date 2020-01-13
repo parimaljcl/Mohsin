@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "151877166754",
+    "firebase_url": "https://mohsin-3949e.firebaseio.com",
+    "project_id": "mohsin-3949e",
+    "storage_bucket": "mohsin-3949e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151877166754:android:abaeac421fed9ea1d799fb",
+        "android_client_info": {
+          "package_name": "com.example.mohsin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151877166754-eek82ihi8blueebmckc2sst81prftac3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhXr5XddjILuPhGEOojTp_DUNGxGJ5Xns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151877166754-eek82ihi8blueebmckc2sst81prftac3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
