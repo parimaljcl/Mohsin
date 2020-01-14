@@ -1,24 +1,26 @@
 package com.example.mohsin;
 
-public class Student {
+public class Teacher {
     private String id;
     private String name;
     private String department;
-    private String semister;
-    private String section;
+    private String designation;
+    private String email;
     private String phone;
+    private String imageUrl;
 
-    public Student() {
+    public Teacher() {
 
     }
 
-    public Student(String id, String name, String department, String semister, String section, String phone) {
+    public Teacher(String id, String name, String department, String designation, String email, String phone,String imageUrl) {
         this.id = id;
         this.name = name;
         this.department = department;
-        this.semister = semister;
-        this.section = section;
+        this.designation = designation;
+        this.email = email;
         this.phone = phone;
+        this.imageUrl=imageUrl;
     }
 
     public String getId() {
@@ -45,20 +47,20 @@ public class Student {
         this.department = department;
     }
 
-    public String getSemister() {
-        return semister;
+    public String getDesignation() {
+        return designation;
     }
 
-    public void setSemister(String semister) {
-        this.semister = semister;
+    public void setDesignation(String designation) {
+        this.designation = designation;
     }
 
-    public String getSection() {
-        return section;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSection(String section) {
-        this.section = section;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhone() {
@@ -68,4 +70,13 @@ public class Student {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }
+

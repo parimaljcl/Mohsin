@@ -9,12 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
-import java.util.zip.Inflater;
+
 
 public class ReportAdapter extends ArrayAdapter<Student> {
     private Context context;
@@ -33,11 +29,13 @@ public class ReportAdapter extends ArrayAdapter<Student> {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.row_item, parent, false);
-        TextView department = convertView.findViewById(R.id.txtDepartment);
+        TextView semister = convertView.findViewById(R.id.txtSemister);
         TextView name = convertView.findViewById(R.id.txtName);
+        TextView phone = convertView.findViewById(R.id.txtPhone);
 
-        department.setText(students.get(position).getDepartment());
+        semister.setText(students.get(position).getSemister()+"("+students.get(position).getSection()+")");
         name.setText(students.get(position).getName());
+        phone.setText(students.get(position).getPhone());
         return convertView;
     }
 }

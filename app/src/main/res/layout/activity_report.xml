@@ -22,34 +22,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <RadioGroup
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/rdoStudent"
-            android:text="Student"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-
-        <RadioButton
-            android:layout_weight="1"
-            android:text="Teacher"
-            android:id="@+id/rdoTeacher"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-
-    </RadioGroup>
-
+    <Button
+    android:layout_marginBottom="20dp"
+    android:text="Show Student"
+    android:id="@+id/btnShowStudent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
 
     <Button
         android:layout_marginBottom="20dp"
-        android:text="Show"
-        android:id="@+id/btnShow"
+        android:text="Show Teacher"
+        android:id="@+id/btnShowTeacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

@@ -14,7 +14,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -40,7 +39,9 @@ public class DepartmentActivity extends AppCompatActivity {
         nameET=findViewById(R.id.txtName);
         listView=findViewById(R.id.listView);
 
-        database = FirebaseDatabase.getInstance().getReference().child("Department");
+        database = FirebaseDatabase
+                .getInstance()
+                .getReference().child("Department");
 
         saveBTN.setOnClickListener(new View.OnClickListener() {
             @Override

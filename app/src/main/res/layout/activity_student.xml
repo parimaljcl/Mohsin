@@ -24,7 +24,26 @@
 
 
     <EditText
+        android:hint="Name"
         android:id="@+id/txtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="Semister"
+        android:id="@+id/txtSemister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="Section"
+        android:id="@+id/txtSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="Phone"
+        android:id="@+id/txtPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

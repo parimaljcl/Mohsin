@@ -2,6 +2,7 @@ package com.example.mohsin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,8 +27,7 @@ import java.util.List;
 public class ReportActivity extends AppCompatActivity {
 
     private Spinner spinner;
-    private Button showBTN;
-    private RadioButton studentRB,teacherRB;
+    private Button showStudentBTN,showTeacherBTN;
     private ListView listView;
     private ArrayList<String>depertments;
     private ArrayList<Student>students;
@@ -41,10 +41,10 @@ public class ReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
 
-        showBTN=findViewById(R.id.btnShow);
+        showStudentBTN=findViewById(R.id.btnShowStudent);
+        showTeacherBTN=findViewById(R.id.btnShowTeacher);
+
         spinner=findViewById(R.id.spDpartment);
-        studentRB=findViewById(R.id.rdoStudent);
-        teacherRB=findViewById(R.id.rdoTeacher);
         listView=findViewById(R.id.listView);
 
         depertments=new ArrayList<>();
@@ -52,60 +52,24 @@ public class ReportActivity extends AppCompatActivity {
         myRef= database.getReference("Department");
         getData();
 
-        showBTN.setOnClickListener(new View.OnClickListener() {
+        showStudentBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String department=spinner.getSelectedItem().toString();
-                if(studentRB.isChecked()){
-                    Query query = database.getReference("Student")
-                            .orderByChild("department")
-                            .equalTo(department);
+                Intent intent=new Intent(ReportActivity.this,StudentDetailActivity.class);
+                intent.putExtra("department",department);
+                startActivity(intent);
 
-                    query.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            students=new ArrayList<>();
-                            for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()) {
-                                Student student=dataSnapshot1.getValue(Student.class);
-                                students.add(student);
-                            }
-                            adapter=new ReportAdapter(ReportActivity.this,students);
-                            listView.setAdapter(adapter);
-                        }
+            }
+        });
 
-                        @Override
-                        public void onCancelled(DatabaseError error) {
-                            // Failed to read value
-                            Log.w("TAG", "Failed to read value.", error.toException());
-                        }
-                    });
-                }
-
-                if(teacherRB.isChecked()){
-                    Query query = database.getReference("Teacher")
-                            .orderByChild("department")
-                            .equalTo(department);
-
-                    query.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            students=new ArrayList<>();
-                            for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()) {
-                                Student student=dataSnapshot1.getValue(Student.class);
-                                students.add(student);
-                            }
-                            adapter=new ReportAdapter(ReportActivity.this,students);
-                            listView.setAdapter(adapter);
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError error) {
-                            // Failed to read value
-                            Log.w("TAG", "Failed to read value.", error.toException());
-                        }
-                    });
-
-                }
+        showTeacherBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String department=spinner.getSelectedItem().toString();
+                Intent intent=new Intent(ReportActivity.this,TeacherDetailActivity.class);
+                intent.putExtra("department",department);
+                startActivity(intent);
             }
         });
     }

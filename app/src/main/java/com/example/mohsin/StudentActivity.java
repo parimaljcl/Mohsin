@@ -25,7 +25,7 @@ import java.util.List;
 public class StudentActivity extends AppCompatActivity {
 
     private Spinner spinner;
-    private EditText nameET;
+    private EditText nameET,semisterET,sectionET,phoneET;
     private Button saveBTN;
     private List<String> depertments;
     private ArrayList<Student>students;
@@ -42,6 +42,10 @@ public class StudentActivity extends AppCompatActivity {
 
         spinner=findViewById(R.id.spDpartment);
         nameET=findViewById(R.id.txtName);
+        semisterET=findViewById(R.id.txtSemister);
+        sectionET=findViewById(R.id.txtSection);
+        phoneET=findViewById(R.id.txtPhone);
+
         saveBTN=findViewById(R.id.btnSave);
         listView=findViewById(R.id.listView);
 
@@ -54,11 +58,14 @@ public class StudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 myDatabase = FirebaseDatabase.getInstance().getReference().child("Student");
-                String stdId,department,name;
+                String stdId,department,name,semister,section,phone;
 
                 stdId=myDatabase.push().getKey();
                 name=nameET.getText().toString();
                 department=spinner.getSelectedItem().toString();
+                semister=semisterET.getText().toString();
+                section=sectionET.getText().toString();
+                phone=phoneET.getText().toString();
 
                 if(name.equals("") || department.equals("")){
                     Toast.makeText(StudentActivity.this, "Department and Name is required....", Toast.LENGTH_SHORT).show();
@@ -66,7 +73,7 @@ public class StudentActivity extends AppCompatActivity {
                 }
 
                 else{
-                    Student student=new Student(stdId,name,department);
+                    Student student=new Student(stdId,name,department,semister,section,phone);
                     myDatabase.child(stdId).setValue(student);
                     Toast.makeText(StudentActivity.this, "Successful...", Toast.LENGTH_SHORT).show();
                 }
